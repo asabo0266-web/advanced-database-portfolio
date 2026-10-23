@@ -6,15 +6,18 @@ ShopEase is a fictional e-commerce business that sells computer accessories, inc
 
 ### Users
 
-The database supports two main user groups:
+ShopEase has two main user groups:
 
-- **Customers:** Browse products, place orders, make payments, and receive deliveries.
-- **Shop staff:** Manage product information, monitor orders and payments, and track sales and deliveries.
+- **Customers:** External users who browse products, place orders, make payments, and receive deliveries.
+- **Shop staff:** Internal users who manage product information, monitor orders and payments, and coordinate deliveries.
+
+The current database schema focuses on the core e-commerce data required to support these operations. It stores customer, product, order, order-item, payment, and delivery records. Although shop staff are identified as operational users of the system, the current six-table design does not include a separate staff table or staff login and access-control functionality.
 
 ### Data Requirements
 
-ShopEase needs to store customer details, product information, orders, individual items within each order, payment records, and delivery information.
+The database stores customer details, product information, orders, individual items within each order, payment records, and delivery information. These records are organised into six related tables: `customers`, `products`, `orders`, `order_items`, `payments`, and `deliveries`.
 
+The design supports order recording, product identification, payment tracking, delivery tracking, and retrieval of sales-related information through SQL queries.
 ### Main Database Operations
 
 The database supports recording customer orders, linking ordered products to their respective orders, tracking payments, managing delivery information, and retrieving sales-related information through SQL queries.
