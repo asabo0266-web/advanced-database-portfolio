@@ -27,3 +27,20 @@ VALUES
     (3, 102, 3, 1, 15000.00),
     (4, 102, 5, 1, 18000.00),
     (5, 103, 3, 1, 15000.00);
+
+INSERT INTO payments
+    (payment_id, order_id, amount, payment_date,
+     payment_method, payment_status)
+VALUES
+    (1, 101, 20500.00, '2026-10-22', 'Card', 'Paid'),
+    (2, 102, 33000.00, '2026-10-22', 'Bank Transfer', 'Paid'),
+    (3, 103, 15000.00, '2026-10-22', 'USSD', 'Paid');
+
+INSERT INTO deliveries
+    (delivery_id, order_id, delivery_address, delivery_status,
+     shipped_date, delivered_date)
+VALUES
+    (1, 101, '12 Example Street, Abuja', 'Shipped', '2026-10-23', NULL),
+    (2, 102, '24 Sample Road, Abuja', 'Processing', NULL, NULL),
+    (3, 103, '8 Fictional Avenue, Abuja', 'Processing', NULL, NULL);
+
