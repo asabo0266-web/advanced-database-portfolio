@@ -26,3 +26,9 @@ A second transaction temporarily increased the price from ₦9,000 to ₦10,000.
 ### Conclusion
 
 The experiment demonstrated that `COMMIT` saves transaction changes, while `ROLLBACK` undoes changes that have not been committed.
+
+## Concurrency Experiment
+
+Two Query Tool windows were used to demonstrate concurrent database transactions. Transaction 2 increased the Wireless Mouse price from ₦9,000 to ₦10,000 without committing the change. While Transaction 2 remained open, Transaction 1 continued to read the previously committed price of ₦9,000.
+
+Transaction 2 was then rolled back, and a final query confirmed that the saved price remained ₦9,000. This demonstrated that PostgreSQL did not expose the uncommitted update to the other transaction, preventing a dirty read in this experiment.
