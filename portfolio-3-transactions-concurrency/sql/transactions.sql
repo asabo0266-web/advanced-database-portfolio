@@ -32,3 +32,13 @@ ROLLBACK;
 SELECT product_id, product_name, price
 FROM products
 WHERE product_id = 1;
+
+-- 3. TRANSACTION ISOLATION
+-- Set the transaction isolation level to REPEATABLE READ.
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+SELECT product_id, product_name, price
+FROM products
+WHERE product_id = 1;
+
+COMMIT;
