@@ -22,3 +22,18 @@ No live cloud deployment or replication test is claimed at this stage.
 
 ## 7. Reflection
 The final reflection will explain what was demonstrated, what limitations remain, and how the design could support ShopEase as it grows.
+
+## Practical Evidence: MongoDB Replica Set
+
+I configured a local MongoDB replica set named `rs0` on my Windows laptop. I added the `replSetName: rs0` setting to the MongoDB configuration file, restarted the MongoDB service, and initialised the replica set using `rs.initiate()`.
+
+I verified the configuration using `rs.status()`. The output showed `set: 'rs0'`, `stateStr: 'PRIMARY'`, and `health: 1`, confirming that the single replica-set member was active and healthy.
+
+The three screenshots (`portfolio-5-replica-set1-status.png`, `portfolio-5-replica-set2-status.png`, and `portfolio-5-replica-set3-status.png`) document the status output from this same local replica-set setup. They do **not** represent three separate replica-set members.
+
+**Limitation:** This experiment demonstrates replica-set initialisation and primary-member status. It does not demonstrate data replication between multiple servers or high availability through failover. The proposed ShopEase cloud architecture discusses how multiple members, replication, sharding, backups, availability, and consistency could support a growing e-commerce business.
+
+## Reflection
+
+This exercise helped me understand that configuring a replica set is more than enabling a setting: the set must also be initialised and its status verified. I also learned that a single-member replica set does not provide the redundancy of a multi-member deployment.
+
