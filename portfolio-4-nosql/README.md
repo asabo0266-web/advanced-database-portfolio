@@ -1,40 +1,59 @@
-# Portfolio 4: NoSQL and Advanced Data Models
+# Portfolio 4: NoSQL Implementation Evidence
 
-## 1. Overview
-This portfolio explores how a NoSQL database can support ShopEase, a fictional e-commerce store that sells computer accessories.
+## 1. Environment
+- Database system: MongoDB
+- Interface: MongoDB Compass
+- Database name: `ShopEaseNoSQL`
+- Collection name: `products`
+- Case study: ShopEase, a fictional e-commerce store selling computer accessories
 
-## 2. Objectives
-- Understand the differences between relational and NoSQL databases.
-- Model product information using a document-based structure.
-- Implement and query product documents using MongoDB.
-- Evaluate the suitability of NoSQL for ShopEase.
+## 2. Dataset
+Five product documents are stored in the `products` collection. The dataset matches the product IDs, names and prices used in the PostgreSQL ShopEase product table.
 
-## 3. Case Study
-ShopEase sells products such as wireless mice, keyboards and laptop stands. Product attributes vary by product type, making a document-based model useful for storing flexible product information.
+| Product ID | Product name | Price (₦) |
+|---:|---|---:|
+| 1 | Wireless Mouse | 9,000 |
+| 2 | USB Keyboard | 12,000 |
+| 3 | Laptop Stand | 15,000 |
+| 4 | USB-C Hub | 22,000 |
+| 5 | Headphones | 18,000 |
 
-## 4. NoSQL Data Model
-The implementation uses a MongoDB database named `ShopEaseNoSQL` and a collection named `products`. Three product documents were imported from a JSON file.
+The source JSON file is stored at `data/products.json`.
 
-The documents contain fields such as `product_id`, `name`, `category`, `price` and `stock`. Some products also contain product-specific fields, such as `wireless`, `connection_type`, `material` and `adjustable`.
+## 3. Implementation
+The database and `products` collection were created in MongoDB Compass. Product documents were imported from JSON. The collection was then checked and corrected to contain one document for each of the five products.
 
-## 5. Implementation and Testing
-MongoDB Compass was used to create the database and collection and import the JSON documents.
+## 4. Query Testing
+The following filters were tested in MongoDB Compass.
 
-A category filter was tested:
-
-```json id="i9q7rw"
+### Category filter
+```json
 { "category": "Laptop Accessories" }
 ```
 
-The query returned the Laptop Stand document. Another filter was used to retrieve products in the `Computer Accessories` category.
+This filter returned the Laptop Stand document.
 
-Screenshot evidence is stored in the `evidence` folder.
+### Wireless attribute filter
+```json
+{ "wireless": true }
+```
 
-## 6. Comparison with a Relational Database
-A relational database typically stores product attributes in predefined columns. MongoDB stores each product as a document, allowing different products to contain different fields. This flexibility can be useful when product types have varying attributes.
+This filter returned products whose `wireless` field is set to the Boolean value `true`.
 
-## 7. Suitability and Limitations
-MongoDB is suitable for ShopEase's product catalogue because product attributes can vary. However, relational databases may be preferable for operations that require strong relationships and structured joins, such as customer orders and payment records. This small demonstration uses only three products, so it does not establish performance advantages at scale.
+### Computer accessories category
+```json
+{ "category": "Computer Accessories" }
+```
 
-## 8. Conclusion
-This portfolio demonstrates a basic document-based data model in MongoDB, JSON data import and filtering by document fields. It also highlights the flexibility and limitations of using NoSQL for an e-commerce catalogue.
+This filter returned products assigned to the Computer Accessories category.
+
+## 5. Screenshot Evidence
+The screenshot `nosql-category-filter.png` records the category filter and its result in MongoDB Compass.
+
+## 6. Observations
+MongoDB stores each product as a document and allows product-specific fields to vary. For example, some products have a `wireless` field, while others have fields such as `connection_type`, `material` or `adjustable`.
+
+This flexibility is useful for product catalogues with varying attributes. However, the small dataset does not establish that MongoDB performs better than a relational database.
+
+## 7. Conclusion
+The implementation demonstrates creation of a MongoDB database and collection, JSON document storage and filtering by document fields. The five-product dataset aligns with the ShopEase relational product records.
