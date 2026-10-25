@@ -1,0 +1,24 @@
+# Portfolio 5: Distributed and Cloud Database Evidence
+
+## 1. Case Study
+ShopEase is a fictional e-commerce store selling computer accessories. This portfolio examines how its database could support growth, availability and reliable access to product and order data.
+
+## 2. Replication
+Replication maintains copies of data across database servers. It can improve availability and support recovery if a server fails.
+
+## 3. Sharding
+Sharding divides data into partitions distributed across multiple servers. A sharding strategy for ShopEase would need to consider query patterns, data distribution and growth.
+
+## 4. Availability and Consistency
+Availability concerns whether the database continues responding to requests. Consistency concerns whether data follows the database system's defined rules across operations and replicas.
+
+## 5. Cloud Deployment
+A managed cloud database could reduce the burden of maintaining database servers and backups. The final design must consider cost, security, network dependency and recovery requirements.
+
+## 6. Practical Evidence
+This section will record the actual demonstration or deployment completed for this portfolio, including configuration details, test results and screenshots.
+
+No live cloud deployment or replication test is claimed at this stage.
+
+## 7. Reflection
+The final reflection will explain what was demonstrated, what limitations remain, and how the design could support ShopEase as it grows.
