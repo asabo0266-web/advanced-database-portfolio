@@ -1,3 +1,4 @@
+
 [
   {
     "product_id": 1,
@@ -23,5 +24,23 @@
     "stock": 12,
     "material": "Aluminium",
     "adjustable": true
+  },
+  {
+    "product_id": 4,
+    "name": "USB-C Hub",
+    "category": "Computer Accessories",
+    "price": 22000,
+    "stock": 10,
+    "connection_type": "USB-C",
+    "ports": 6
+  },
+  {
+    "product_id": 5,
+    "name": "Headphones",
+    "category": "Audio Accessories",
+    "price": 18000,
+    "stock": 15,
+    "wireless": true,
+    "noise_cancelling": true
   }
 ]
