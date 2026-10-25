@@ -42,3 +42,31 @@ FROM products
 WHERE product_id = 1;
 
 COMMIT;
+
+-- 4. CONCURRENCY: PREVENTING DIRTY READS
+-- Transaction 2 updates the price without committing.
+-- Transaction 1 continues to see the previously committed price.
+
+-- Run first in Query Tool 2:
+BEGIN;
+
+UPDATE products
+SET price = price + 1000
+WHERE product_id = 1;
+
+SELECT product_id, product_name, price
+FROM products
+WHERE product_id = 1;
+
+-- While Transaction 2 remains open, run in Query Tool 1:
+SELECT product_id, product_name, price
+FROM products
+WHERE product_id = 1;
+
+-- Finally, run in Query Tool 2:
+ROLLBACK;
+
+-- Verify that the saved price remains unchanged:
+SELECT product_id, product_name, price
+FROM products
+WHERE product_id = 1;
