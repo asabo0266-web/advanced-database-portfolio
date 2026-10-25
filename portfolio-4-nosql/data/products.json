@@ -1,0 +1,27 @@
+[
+  {
+    "product_id": 1,
+    "name": "Wireless Mouse",
+    "category": "Computer Accessories",
+    "price": 9000,
+    "stock": 25,
+    "wireless": true
+  },
+  {
+    "product_id": 2,
+    "name": "USB Keyboard",
+    "category": "Computer Accessories",
+    "price": 12000,
+    "stock": 18,
+    "connection_type": "USB"
+  },
+  {
+    "product_id": 3,
+    "name": "Laptop Stand",
+    "category": "Laptop Accessories",
+    "price": 15000,
+    "stock": 12,
+    "material": "Aluminium",
+    "adjustable": true
+  }
+]
