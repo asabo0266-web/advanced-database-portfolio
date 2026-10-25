@@ -1,56 +1,56 @@
-# Portfolio 5: Distributed and Cloud Databases
+# Portfolio 5: Distributed and Cloud Database Exercise
 
-## 1. Overview
-This portfolio explores how distributed and cloud database concepts can support ShopEase, a fictional e-commerce store selling computer accessories.
+## 1. Case Study
 
-## 2. Objectives
-- Understand the purpose of distributed databases.
-- Explain replication and sharding.
-- Explore availability and consistency in distributed systems.
-- Evaluate cloud database deployment options for ShopEase.
+ShopEase is a fictional e-commerce shop selling computer accessories. As the business grows, it needs reliable access to product and order data, data protection, and the ability to support more customers.
 
-## 3. Case Study
-ShopEase sells products including wireless mice, USB keyboards, laptop stands, USB-C hubs and headphones. As the business grows, it may need to support more customers, larger volumes of orders and users accessing the system from different locations.
+## 2. Aim
 
-## 4. Distributed Database Concepts
-A distributed database stores or manages data across multiple connected machines or locations.
+This portfolio explores distributed and cloud database concepts using ShopEase as the case study. It combines a practical local MongoDB replica-set configuration with a proposed cloud architecture.
+
+## 3. Practical Implementation: MongoDB Replica Set
+
+I configured a local MongoDB replica set named `rs0` on my Windows laptop.
+
+The steps included:
+1. Creating a backup copy of the MongoDB configuration file.
+2. Adding `replication.replSetName: rs0` to the configuration.
+3. Restarting the MongoDB service.
+4. Initialising the replica set with `rs.initiate()`.
+5. Verifying the configuration with `rs.status()`.
+
+The status output showed the replica set name `rs0`, member state `PRIMARY`, and health value `1`. This confirms that the single-member replica set was active and healthy.
+
+Screenshots of the status output are available in the `evidence/` folder.
+
+### Limitation
+
+This local setup contains one replica-set member. It demonstrates configuration and initialisation, but does not demonstrate data replication between multiple servers, failover to another member, or high availability. These would require a multi-member deployment and additional testing.
+
+## 4. Proposed ShopEase Cloud Architecture
+
+A production version of ShopEase could use a managed cloud database with secure network access, automated backups, monitoring, and multiple replica-set members.
 
 ### Replication
-Replication maintains copies of data on multiple database servers. It can improve availability and support recovery if one server fails.
+
+Replication maintains copies of data across multiple database members. If a primary member becomes unavailable, an eligible secondary may be elected as the new primary, provided the replica-set configuration and voting requirements permit it.
 
 ### Sharding
-Sharding divides a dataset into smaller partitions distributed across multiple servers. It can help a system scale as its data and workload increase.
+
+Sharding distributes data across multiple servers to support larger datasets and workloads. ShopEase might consider sharding if product, customer, and order data grew beyond what a single database deployment could efficiently support. Sharding would add operational complexity and should not be introduced without a demonstrated need.
 
 ### Availability and Consistency
-Availability concerns whether the system continues responding to requests. Consistency concerns whether users receive data that follows the system's consistency rules. Distributed systems must consider how these goals behave during network or server failures.
 
-## 5. Proposed ShopEase Architecture
-A future ShopEase deployment could use a managed cloud database service, automated backups and replicated database instances. If product or order data grows significantly, sharding could be evaluated based on workload and access patterns.
+Availability concerns whether customers can access the service when needed. Consistency concerns whether reads and writes follow the database's configured rules for data visibility and acknowledgement. ShopEase would need to choose suitable write concerns, read preferences, backups, and recovery procedures according to its business requirements.
 
-This is a proposed architecture, not a claim that a cloud deployment has already been implemented.
+## 5. Suitability for ShopEase
 
-## 6. Implementation and Evidence
-This section will document the practical demonstration, configuration or research evidence used to explore distributed and cloud database concepts.
+A managed cloud database could reduce the maintenance burden and support growth. Replication could improve resilience, while sharding could provide horizontal scaling if required. These benefits depend on correct configuration, monitoring, backup practices, and testing.
 
-## 7. Suitability and Limitations
-A managed cloud database could reduce the operational burden of server maintenance, backups and availability management. However, it may introduce ongoing costs, network dependency, access-control responsibilities and vendor lock-in.
+## 6. Conclusion
 
-Replication and sharding also introduce operational complexity and should be selected according to actual business requirements.
+This exercise provided practical experience configuring and verifying a local MongoDB replica set. It also helped distinguish a working single-member setup from a multi-member deployment that can demonstrate replication and failover. The cloud architecture is a proposal, not a live cloud deployment.
 
-## 8. Conclusion
-This portfolio examines how distributed and cloud database approaches could support ShopEase as it grows. It distinguishes the proposed architecture from any practical implementation and evaluates the benefits and trade-offs of replication, sharding, availability and consistency.
+## 7. Evidence
 
-## Practical Evidence: MongoDB Replica Set
-
-I configured a local MongoDB replica set named `rs0` on my Windows laptop. I added the `replSetName: rs0` setting to the MongoDB configuration file, restarted the MongoDB service, and initialised the replica set using `rs.initiate()`.
-
-I verified the configuration using `rs.status()`. The output showed `set: 'rs0'`, `stateStr: 'PRIMARY'`, and `health: 1`, confirming that the single replica-set member was active and healthy.
-
-The three screenshots (`portfolio-5-replica-set1-status.png`, `portfolio-5-replica-set2-status.png`, and `portfolio-5-replica-set3-status.png`) document the status output from this same local replica-set setup. They do **not** represent three separate replica-set members.
-
-**Limitation:** This experiment demonstrates replica-set initialisation and primary-member status. It does not demonstrate data replication between multiple servers or high availability through failover. The proposed ShopEase cloud architecture discusses how multiple members, replication, sharding, backups, availability, and consistency could support a growing e-commerce business.
-
-## Reflection
-
-This exercise helped me understand that configuring a replica set is more than enabling a setting: the set must also be initialised and its status verified. I also learned that a single-member replica set does not provide the redundancy of a multi-member deployment.
-
+See the `evidence/` folder for the replica-set status screenshots and supporting documentation.
