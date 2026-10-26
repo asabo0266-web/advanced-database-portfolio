@@ -29,6 +29,10 @@ This repository contains five portfolios exploring database design, SQL query op
 
 Each portfolio folder contains its own documentation and relevant implementation files or screenshots. The documentation identifies practical work completed and explains any limitations.
 
-## Academic Integrity
+## Academic Integrity and AI Use
 
-This repository documents my work and learning throughout the Advanced Database Systems assessment. I am responsible for understanding and explaining the submitted implementations and concepts. Any AI assistance should be acknowledged in accordance with the university’s assessment requirements.
+This repository documents my work and learning throughout the Advanced Database Systems assessment. ChatGPT (OpenAI) was used to support learning, organise and edit documentation, clarify database concepts, and review the presentation and consistency of the portfolio materials.
+
+I reviewed the assistance against my SQL scripts, recorded query execution plans, transaction results, MongoDB documents and filter tests, and replica-set status evidence. I corrected documentation where necessary to reflect the recorded results and distinguish implemented work from proposed architecture. The performance analysis does not claim that the index improved performance, and the distributed database portfolio does not claim that a single-member replica set provides full high availability.
+
+I remain responsible for the accuracy of the submitted work and for understanding and explaining the implementations and conclusions.
