@@ -66,11 +66,13 @@ The `ShopEaseNoSQL` database and its `products` collection were created in Mongo
 **Expected result:** Laptop Stand and USB-C Hub.
 
 ## 5. Screenshot Evidence
+
 The following screenshots document the filter tests:
 
-- `nosql-category-filter.png` — category filter for Laptop Accessories.
-- `nosql-price-filter.png` — products priced above ₦15,000.
-- `nosql-low-stock-filter.png` — products with fewer than 15 units in stock.
+- `nosql_category_filter.png` — Shows the category filter for Laptop Accessories.
+- `nosql_fieldname_filter.png` — Shows the Boolean filter for products where `wireless` is `true`.
+- `nosql_price_filter.png` — Shows products priced above ₦15,000.
+- `nosql_low_stock_filter.png` — Shows products with fewer than 15 units in stock.
 
 ## 6. Observations
 MongoDB Compass supports filtering documents by exact field values and comparison operators. The tests demonstrate category filtering, Boolean matching, price comparisons and stock-level filtering.
