@@ -23,6 +23,10 @@ The Wireless Mouse price increased from ₦8,500 to ₦9,000. After executing `C
 
 A second transaction temporarily increased the price from ₦9,000 to ₦10,000. After executing `ROLLBACK`, the price returned to ₦9,000.
 
+### Transaction Isolation
+
+The portfolio also includes a transaction using PostgreSQL's `REPEATABLE READ` isolation level. This sets the isolation level for that transaction, although the experiment did not test repeatable reads across concurrent transactions.
+
 ### Conclusion
 
 The experiment demonstrated that `COMMIT` saves transaction changes, while `ROLLBACK` undoes changes that have not been committed.
